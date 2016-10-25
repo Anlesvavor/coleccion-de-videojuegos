@@ -5,11 +5,14 @@
  */
 package gui;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author LeJesusjar
  */
-public class PantallaPrincipal extends javax.swing.JFrame {
+public class PantallaPrincipal extends javax.swing.JFrame implements Runnable{
 
     /**
      * Creates new form PantallaPrincipal
@@ -27,18 +30,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        btnInventario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(420, 420));
 
-        jButton1.setText("Crear nuevo inventario");
-        jButton1.setMaximumSize(new java.awt.Dimension(210, 23));
-        jButton1.setMinimumSize(new java.awt.Dimension(210, 23));
-        jButton1.setPreferredSize(new java.awt.Dimension(210, 23));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnInventario.setText("Crear nuevo inventario");
+        btnInventario.setMaximumSize(new java.awt.Dimension(210, 23));
+        btnInventario.setMinimumSize(new java.awt.Dimension(210, 23));
+        btnInventario.setPreferredSize(new java.awt.Dimension(210, 23));
+        btnInventario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnInventarioActionPerformed(evt);
             }
         });
 
@@ -48,23 +51,25 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(105, 105, 105)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(105, 105, 105))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(57, 57, 57)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(220, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventarioActionPerformed
+        setVisible(false);
+        new FormularioVideojuegos().setVisible(true);
+        
+    }//GEN-LAST:event_btnInventarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -97,11 +102,25 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new PantallaPrincipal().setVisible(true);
+                new Splash().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnInventario;
     // End of variables declaration//GEN-END:variables
+
+    
+    @Override
+    public void run() {
+
+ 
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 }

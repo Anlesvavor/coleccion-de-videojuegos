@@ -16,6 +16,7 @@ public class FormularioVideojuegos extends javax.swing.JFrame {
      */
     public FormularioVideojuegos() {
         initComponents();
+        setLocation(0, 0);
 //        ;)
     }
     /**

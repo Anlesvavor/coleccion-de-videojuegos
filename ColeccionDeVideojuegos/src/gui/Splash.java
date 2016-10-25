@@ -5,17 +5,24 @@
  */
 package gui;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author LeJesusjar
  */
-public class Splash extends javax.swing.JFrame {
-
+public class Splash extends javax.swing.JFrame implements Runnable {
+    Thread hilo;
     /**
      * Creates new form Splash
      */
     public Splash() {
         initComponents();
+                setLocation(0, 0);
+                setSize(800, 600);
+        hilo = new Thread(this);
+        hilo.start();
     }
 
     /**
@@ -27,20 +34,24 @@ public class Splash extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(new java.awt.Color(204, 255, 255));
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(420, 420));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/splash.jpg"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 469, Short.MAX_VALUE)
+            .addComponent(jLabel1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 353, Short.MAX_VALUE)
+            .addComponent(jLabel1)
         );
 
         pack();
@@ -82,5 +93,16 @@ public class Splash extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void run() {
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Splash.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.setVisible(false);
+    }
 }
